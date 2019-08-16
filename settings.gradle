@@ -1,2 +1,6 @@
 rootProject.name = 'java-test-comparison'
+include 'junit-mockito'
+include 'application'
+include 'junit-weld-dbunit'
+include 'arquillian-liberty'
 

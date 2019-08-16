@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="new server">
+
+    <!-- Enable features -->
+    <featureManager>
+        <feature>javaee-8.0</feature>
+        <feature>localConnector-1.0</feature>
+    </featureManager>
+
+    <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
+    <httpEndpoint id="defaultHttpEndpoint"
+                  httpPort="9080"
+                  httpsPort="9443"/>
+
+    <!-- Automatically expand WAR files and EAR files -->
+    <applicationManager autoExpand="true"/>
+    <applicationMonitor updateTrigger="mbean"/>
+
+    <basicRegistry>
+        <user name="abc" password="def"/>
+    </basicRegistry>
+
+    <dataSource id="DefaultDataSource" jndi="jdbc/defaultPU" type="javax.sql.ConnectionPoolDataSource">
+        <jdbcDriver
+                javax.sql.ConnectionPoolDataSource="org.h2.jdbcx.JdbcDataSource"
+                javax.sql.DataSource="org.h2.jdbcx.JdbcDataSource"
+                javax.sql.XADataSource="org.h2.jdbcx.JdbcDataSource"
+                libraryRef="H2Lib"/>
+        <properties
+                URL="jdbc:h2:mem:test"
+                databaseName="DB"
+                user="sa"
+                password="sa"/>
+    </dataSource>
+
+    <library id="H2Lib">
+        <file name="/home/oli/.gradle/caches/modules-2/files-2.1/com.h2database/h2/1.4.199/7bf08152984ed8859740ae3f97fae6c72771ae45/h2-1.4.199.jar"/>
+    </library>
+
+</server>

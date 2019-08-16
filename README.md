@@ -20,6 +20,7 @@ to force the execution of the tests. The latter command was used to measure the 
 project only has one test class, it was duplicated n times to see how the execution time is scaling when there are 20 or 100 test classes.
 
 Nr of TestClasses | Mockito | Weld + Eclipselink | Arquillian
+---|---|---|---
 1 | ~600ms | 1s | 17s
 10 | <1s | 2s | 48s
 20 | <1s | 2s | 69s
